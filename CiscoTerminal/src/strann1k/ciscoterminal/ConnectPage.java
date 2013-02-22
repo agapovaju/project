@@ -7,6 +7,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,6 +20,14 @@ public class ConnectPage extends Activity {
 		EditText editIP=(EditText) findViewById(R.id.editIP);
 		registerForContextMenu(editIP);
 		Button connectBut=(Button) findViewById(R.id.connectButton);
+		connectBut.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
 	//—оздание коснтекстного меню дл€ строки IP-адреса
@@ -48,5 +57,12 @@ public class ConnectPage extends Activity {
 		getMenuInflater().inflate(R.menu.connect_page, menu);
 		return true;
 	}
-
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		if (item.getItemId()==R.id.item_quit){
+			ConnectPage.this.finish();
+		}
+		return super.onOptionsItemSelected(item);
+	}
 }

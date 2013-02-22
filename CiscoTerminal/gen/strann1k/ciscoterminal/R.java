@@ -19,8 +19,9 @@ public final class R {
         public static final int editIP=0x7f070000;
         public static final int editText1=0x7f070004;
         public static final int editText2=0x7f070005;
-        public static final int item_copy=0x7f070007;
-        public static final int item_paste=0x7f070008;
+        public static final int item_copy=0x7f070008;
+        public static final int item_paste=0x7f070009;
+        public static final int item_quit=0x7f070007;
         public static final int spinner1=0x7f070003;
         public static final int textView1=0x7f070006;
     }
