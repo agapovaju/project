@@ -33,6 +33,8 @@ public class ConnectPage extends Activity {
 		setContentView(R.layout.connect_page);
 		server_ip=(EditText) findViewById(R.id.editIP);
 		server_port=(EditText)findViewById(R.id.editPort);
+		final Integer port= Integer.parseInt(server_port.getText().toString());
+		
 		registerForContextMenu(server_ip);
 		Button connectBut=(Button) findViewById(R.id.connectButton);
 		connectBut.setOnClickListener(new OnClickListener() {
@@ -40,6 +42,19 @@ public class ConnectPage extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				try {
+					DatagramSocket sock= new DatagramSocket();
+					sock.connect(InetAddress.getByName(server_ip.getText().toString()), Integer.parseInt(server_port.getText().toString()));
+				} catch (SocketException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnknownHostException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				Intent toWP = new Intent(ConnectPage.this, WorkActivity.class);
 				toWP.putExtra("Key_port", server_port.getText().toString());
 				toWP.putExtra("Key_address", server_ip.getText().toString());
