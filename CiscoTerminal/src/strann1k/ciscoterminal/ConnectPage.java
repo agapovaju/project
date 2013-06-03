@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+
+import java.io.IOException;
 import java.net.*;
 
 
@@ -22,9 +24,9 @@ public class ConnectPage extends Activity {
 
 	public EditText server_ip;
 	public EditText server_port;
-	
-	public TextView ip_s;
-	public TextView port_s;
+	public Socket socket;
+	private String ip_address;
+	private Integer port;
 	public String result_mess = "";
 	
 	@Override
@@ -33,32 +35,33 @@ public class ConnectPage extends Activity {
 		setContentView(R.layout.connect_page);
 		server_ip=(EditText) findViewById(R.id.editIP);
 		server_port=(EditText)findViewById(R.id.editPort);
-		final Integer port= Integer.parseInt(server_port.getText().toString());
-		
 		registerForContextMenu(server_ip);
+		registerForContextMenu(server_port);
 		Button connectBut=(Button) findViewById(R.id.connectButton);
+		//Обработка нажатия на кнопку подключения
 		connectBut.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				ip_address=server_ip.getText().toString();
+				port=Integer.parseInt(server_port.getText().toString());
+				
 				try {
-					DatagramSocket sock= new DatagramSocket();
-					sock.connect(InetAddress.getByName(server_ip.getText().toString()), Integer.parseInt(server_port.getText().toString()));
-				} catch (SocketException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					InetAddress serv_addr= InetAddress.getByName(ip_address);
+					socket= new Socket(serv_addr,port);
 				} catch (UnknownHostException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				Intent toWP = new Intent(ConnectPage.this, WorkActivity.class);
-				toWP.putExtra("Key_port", server_port.getText().toString());
-				toWP.putExtra("Key_address", server_ip.getText().toString());
-				startActivity(toWP);
+				
+				//Передача адреса и порта в WorkActivity
+				Intent toWA = new Intent(ConnectPage.this, WorkActivity.class);
+				toWA.putExtra("Key_port", port);
+				toWA.putExtra("Key_address", ip_address);
+				startActivity(toWA);
 			}
 		});
 	}
