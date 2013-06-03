@@ -1,6 +1,7 @@
 package strann1k.ciscoterminal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -10,22 +11,39 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import java.net.*;
+
+
 
 public class ConnectPage extends Activity {
 
+	public EditText server_ip;
+	public EditText server_port;
+	
+	public TextView ip_s;
+	public TextView port_s;
+	public String result_mess = "";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.connect_page);
-		EditText editIP=(EditText) findViewById(R.id.editIP);
-		registerForContextMenu(editIP);
+		server_ip=(EditText) findViewById(R.id.editIP);
+		server_port=(EditText)findViewById(R.id.editPort);
+		registerForContextMenu(server_ip);
 		Button connectBut=(Button) findViewById(R.id.connectButton);
 		connectBut.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				Intent toWP = new Intent(ConnectPage.this, WorkActivity.class);
+				toWP.putExtra("Key_port", server_port.getText().toString());
+				toWP.putExtra("Key_address", server_ip.getText().toString());
+				startActivity(toWP);
 			}
 		});
 	}
