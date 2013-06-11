@@ -15,21 +15,23 @@ public final class R {
     }
     public static final class id {
         public static final int IPLabel=0x7f070006;
-        public static final int TextView01=0x7f070007;
+        public static final int InterfacesSpinner=0x7f07000a;
         public static final int connectButton=0x7f070005;
         public static final int editIP=0x7f070003;
+        public static final int editMask=0x7f07000b;
         public static final int editPort=0x7f070004;
         public static final int editSend=0x7f070000;
-        public static final int editText1=0x7f070009;
-        public static final int editText2=0x7f07000a;
-        public static final int item_copy=0x7f07000e;
-        public static final int item_paste=0x7f07000f;
-        public static final int item_quit=0x7f07000d;
-        public static final int menu_settings=0x7f07000c;
+        public static final int informLabel=0x7f07000c;
+        public static final int item_IntPage=0x7f07000f;
+        public static final int item_copy=0x7f070010;
+        public static final int item_paste=0x7f070011;
+        public static final int item_quit=0x7f07000e;
+        public static final int menu_settings=0x7f07000d;
+        public static final int portLabel=0x7f070007;
+        public static final int protocolSpinner=0x7f070008;
+        public static final int selectLabel=0x7f070009;
         public static final int sendButton=0x7f070001;
-        public static final int spinner1=0x7f070008;
-        public static final int textAnswer=0x7f070002;
-        public static final int textView1=0x7f07000b;
+        public static final int textReply=0x7f070002;
     }
     public static final class layout {
         public static final int activity_work=0x7f030000;
@@ -48,9 +50,14 @@ public final class R {
         public static final int connect_address=0x7f040003;
         public static final int copy=0x7f040005;
         public static final int hello_world=0x7f040001;
+        public static final int interfaces=0x7f04000e;
         public static final int menu_settings=0x7f040002;
         public static final int paste=0x7f040006;
+        public static final int quit=0x7f04000d;
+        public static final int select=0x7f04000c;
         public static final int send=0x7f040009;
+        public static final int ssh=0x7f04000b;
+        public static final int telnet=0x7f04000a;
         public static final int title_activity_work=0x7f040008;
     }
     public static final class style {

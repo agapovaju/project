@@ -9,9 +9,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
@@ -33,10 +38,20 @@ public class ConnectPage extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.connect_page);
+		String[] data = {"TELNET", "SSH"};
 		server_ip=(EditText) findViewById(R.id.editIP);
 		server_port=(EditText)findViewById(R.id.editPort);
 		registerForContextMenu(server_ip);
 		registerForContextMenu(server_port);
+		
+		// адаптер
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       
+        Spinner spinner = (Spinner) findViewById(R.id.protocolSpinner);
+        spinner.setAdapter(adapter);
+       
+		
 		Button connectBut=(Button) findViewById(R.id.connectButton);
 		//Обработка нажатия на кнопку подключения
 		connectBut.setOnClickListener(new OnClickListener() {
@@ -66,7 +81,7 @@ public class ConnectPage extends Activity {
 		});
 	}
 	
-	//Создание коснтекстного меню для строки IP-адреса
+	//Создание коснтекстного меню для строки IP-адреса и порта
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
@@ -98,6 +113,10 @@ public class ConnectPage extends Activity {
 		// TODO Auto-generated method stub
 		if (item.getItemId()==R.id.item_quit){
 			ConnectPage.this.finish();
+		}
+		if (item.getItemId()==R.id.item_IntPage){
+			Intent toIntPage = new Intent(ConnectPage.this, Interfaces.class);
+			startActivity(toIntPage);
 		}
 		return super.onOptionsItemSelected(item);
 	}

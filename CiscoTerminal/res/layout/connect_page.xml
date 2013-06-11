@@ -23,6 +23,7 @@
         android:layout_alignBaseline="@+id/editIP"
         android:layout_alignBottom="@+id/editIP"
         android:layout_toRightOf="@+id/editIP"
+        android:inputType="number"
         android:ems="10" />
 
     <Button
@@ -45,12 +46,30 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/TextView01"
+        android:id="@+id/portLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/editPort"
         android:layout_alignLeft="@+id/editPort"
         android:text="@string/Connect_port"
         android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/protocolSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/selectLabel" />
+    
+	<TextView
+        android:id="@+id/selectLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/select"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
 
 </RelativeLayout>

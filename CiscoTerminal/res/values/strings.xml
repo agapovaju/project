@@ -11,5 +11,10 @@
     <string name="Connect_port">Enter port</string>
     <string name="title_activity_work">WorkActivity</string>
     <string name="send">Send</string>
+    <string name="telnet">TELNET</string>
+    <string name="ssh">SSH</string>
+    <string name="select">Select the protocol</string>
+    <string name="quit">Quit</string>
+    <string name="interfaces">Show interfaces</string>
 
 </resources>
