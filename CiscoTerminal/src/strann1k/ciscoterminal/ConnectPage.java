@@ -32,7 +32,7 @@ public class ConnectPage extends Activity {
 	public Socket socket;
 	private String ip_address;
 	private Integer port;
-	public String result_mess = "";
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +60,7 @@ public class ConnectPage extends Activity {
 			public void onClick(View v) {
 				ip_address=server_ip.getText().toString();
 				port=Integer.parseInt(server_port.getText().toString());
-				
-				try {
-					InetAddress serv_addr= InetAddress.getByName(ip_address);
-					socket= new Socket(serv_addr,port);
-				} catch (UnknownHostException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
+								
 				//Передача адреса и порта в WorkActivity
 				Intent toWA = new Intent(ConnectPage.this, WorkActivity.class);
 				toWA.putExtra("Key_port", port);
