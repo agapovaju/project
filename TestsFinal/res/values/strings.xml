@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Испытания</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_change_events_screen">Просмотр записей</string>
+    <string name="title_activity_new_event_screen">Новое испытание</string>
+    <string name="title_activity_tests_screen">Испытания</string>
+    <string name="title_activity_events_screen">Записи</string>
+    <string name="lookRecords">Просмотр записей</string>
+    <string name="lookAllRecords">Просмотр всех записей</string>
+    <string name="editTestType">Изменить тип испытания</string>
+    <string name="editStartTime">Изменить время начала</string>
+    <string name="editStopTime">Изменить время конца</string>
+    <string name="editComment">Изменить комментарий</string>
+    <string name="editBlockID">Изменить ID блока</string>
+    <string name="editEventName">Изменить испытание</string>
+    <string name="atention">Перед использованием приложения включите GPS</string>
+    
+    <string name="car">Машина</string>
+    <string name="diging">Копка</string>
+    <string name="pedestrian">Пешеход</string>
+    <string name="motorcycle">Мотоцикл</string>
+    <string name="lorry">Грузовая машина</string>
+    <string name="start">Старт</string>
+    
+    <string name="exEvents">Прошедшие испытания</string>
+    <string name="title_activity_events">Events</string>
+    <string name="commentHint">Комментарий</string>
+    <string name="createXML">Сформировать XML-файл</string>
+    <string name="location">Координаты:</string>
+    <string name="gpsStatus">Статус GPS</string>
+    <string name="netStatus">Статус NETWORK</string>
+    <string name="title_activity_start_screen">Испытания</string>
+    <string name="enterName">Введите имя испытания</string>
+    <string name="changeEvent">Выберите испытание</string>
+    <string name="enterBlockNumber">Введите номер блока</string>
+    <string name="changeBlockNumber">Выберите блок</string>
+    <string name="newEvent">Новое испытание</string>
+    <string name="title_activity_change_event">Выбор испытания</string>
+    <string name="title_activity_new_event">Новое испытание</string>
+
+</resources>
